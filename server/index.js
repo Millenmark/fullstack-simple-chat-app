@@ -1,12 +1,15 @@
 const express = require("express");
+const { json } = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute")
+require("dotenv").config();
+
+
 const app = express();
-require("dotenv").config()
 
 //When using 'use', it is a middleware
-app.use(express.json());
+app.use(json());
 app.use(cors());
 app.use("/api/users", userRoute)
 
@@ -28,5 +31,5 @@ mongoose.connect(URI,{
 }).then(() => {
   console.log("Successfully Connected to MongoDB ATLAS");
 }).catch((error) => {
-  console.log("MongoDB Connection Failed!", error.message);
+  console.log("MongoDB Connection Failed! ", error.message);
 });
