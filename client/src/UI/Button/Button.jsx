@@ -1,7 +1,7 @@
 import style from './Button.module.css'
 import PropTypes from 'prop-types'
 
-const Button = ({children, className, type, bgColor}) => {
+const Button = ({children, className, type, bgColor, onClick}) => {
   let color = '';
 
   switch (bgColor) {
@@ -26,6 +26,7 @@ const Button = ({children, className, type, bgColor}) => {
       type={type || "button"} 
       className={`${style.button} ${className}`}
       style={{backgroundColor: color}}
+      onClick={onClick}
     >
       {children}
     </button>
@@ -37,6 +38,7 @@ Button.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   bgColor: PropTypes.oneOf(['', 'primary', 'secondary', 'success', 'danger']).isRequired,
+  onClick: PropTypes.func,
 };
 
 export default Button

@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState } from "react"
+import { createContext, useCallback, useState, useEffect } from "react"
 import PropTypes from 'prop-types'
 import { baseUrl, postRequest } from "../utils/services"
 
@@ -14,6 +14,13 @@ export const AuthContextProvider = ({ children }) => {
     email: "",
     password: ""
   })
+
+  // console.log('User', user);
+
+  useEffect(() => {
+    const user = localStorage.getItem("User")
+    setUser(JSON.parse(user));
+  }, [])
 
   const updateRegisterInfo = useCallback((info) => {
     setRegisterInfo(info)
@@ -37,6 +44,11 @@ export const AuthContextProvider = ({ children }) => {
     setUser(response)
   }, [registerInfo])
 
+  const logout = useCallback(() => {
+    localStorage.removeItem('User')
+    setUser(null)
+  }, [])
+
   return (
     <AuthContext.Provider 
       value = {{
@@ -45,7 +57,8 @@ export const AuthContextProvider = ({ children }) => {
         updateRegisterInfo,
         registerUser,
         registerError,
-        isRegisterLoading
+        isRegisterLoading,
+        logout
       }}
     >
       {children}
