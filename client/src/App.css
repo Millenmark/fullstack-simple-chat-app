@@ -30,3 +30,22 @@ a {
   text-decoration: none;
   font-family: inherit;
 }
+
+form {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  flex-basis: 500px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  padding: .5rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-family: inherit;
+}
