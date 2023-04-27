@@ -1,0 +1,24 @@
+.navbar {
+  /* border: 2px solid red; */
+  padding-block: .75rem;
+}
+
+.navcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navcontainer > ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.navcontainer > ul li:not(:first-child) {
+  border-left: 2px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+.navcontainer > ul li:hover {
+  text-decoration: underline;
+}
