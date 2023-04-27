@@ -2,8 +2,12 @@ import style from './Login.module.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Button } from '../../UI'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/AuthContext'
 
 const Login = () => {
+  const {loginUser, loginInfo, updateLoginInfo, loginError, isLoginLoading} = useContext(AuthContext)
+
   const toastConfig = {
     position: "bottom-right",
     autoClose: 8000,
@@ -16,7 +20,7 @@ const Login = () => {
   return (
     <>
       <div className={style.formContainer}>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={loginUser}>
           <h2>Login</h2>
           <div className={style.formWrapper}>
             <div className="form-field">
@@ -26,6 +30,7 @@ const Login = () => {
                 name="email" 
                 id="email"
                 placeholder="Enter your email" 
+                onChange={(e) => updateLoginInfo({...loginInfo, email: e.target.value})}
               />
             </div>
 
@@ -36,6 +41,7 @@ const Login = () => {
                 name="password" 
                 id="password"
                 placeholder="Enter your password" 
+                onChange={(e) => updateLoginInfo({...loginInfo, password: e.target.value})}
               />
             </div>
             <Button 

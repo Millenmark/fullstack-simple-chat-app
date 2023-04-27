@@ -12,7 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   const [isRegisterLoading, setIsRegisterLoading] = useState(false)
   const [loginInfo, setLoginInfo] = useState({
     email: "",
-    password: ""
+    password: "",
   })
 
   const [registerInfo, setRegisterInfo] = useState({
@@ -22,6 +22,7 @@ export const AuthContextProvider = ({ children }) => {
   })
 
   // console.log('User', user);
+  console.log("loginInfo", loginInfo);
 
   useEffect(() => {
     const user = localStorage.getItem("User")
@@ -33,7 +34,10 @@ export const AuthContextProvider = ({ children }) => {
   }, [])
 
   const updateLoginInfo = useCallback((info) => {
-    setLoginInfo(info)
+    setLoginInfo(prevInfo => ({
+      ...prevInfo,
+      ...info
+    }))
   }, [])
 
   const registerUser =useCallback(async () => {
@@ -56,7 +60,6 @@ export const AuthContextProvider = ({ children }) => {
 
 
   const loginUser = useCallback(async (e) => {
-
     e.preventDefault()
     
     setIsLoginLoading(true)
