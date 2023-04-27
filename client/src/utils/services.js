@@ -1,25 +1,28 @@
 //In this file, I will going to perform all the http requests
-import axios from 'axios';
-
 export const baseUrl = "http://localhost:5000/api"
 
-export const postRequest = async (url, body) => {
-  try {
-    const response = await axios.post(url, body, {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    return response.data;
-  } catch (error) {
+export const postRequest = async(url, body) => {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
     let message;
 
-    if (error.response.data?.message) {
-      message = error.response.data.message;
+    if(data?.message) {
+      message = data.message
     } else {
-      message = error.message;
+      message = data
     }
 
-    return { error: true, message };
+    return {error: true, message}
   }
+
+  return data
 }
