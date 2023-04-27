@@ -6,8 +6,7 @@ const Navbar = () => {
   return (
     <div>
       <Container>
-        <h1><Link to="/">JustChat</Link>
-        </h1>
+        <h1><Link to="/">JustChat</Link></h1>
       </Container>
     </div>
   )
