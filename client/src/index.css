@@ -3,7 +3,11 @@
 :root {
   --main-font: 'Poppins', sans-serif;
 
-  --bg-color-primary: #1e1e1e;
+  --bg-color-primary: #14212a;
 
   --white-color: #f6f6f6;
+  --primary-color: #07B7DC;
+  --secondary-color: #34495e;
+  --success-color: #59ebcb;
+  --danger-color: #ff8975;
 }
