@@ -93,6 +93,12 @@ const Register = () => {
                 placeholder="Enter your password"
                 onChange={(e) => updateRegisterInfo({...registerInfo, password: e.target.value})}
               />
+              <h6 style={{marginTop: ".5rem", fontWeight: "500"}}>
+                Your password must have: <br/>
+                8 characters<br/>
+                Uppercase Letter/s <br/>
+                Special characters<br/>
+              </h6>
             </div>
             <Button 
               type={'submit'}
