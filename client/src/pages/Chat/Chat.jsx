@@ -15,7 +15,6 @@ const Chat = () => {
 
   return (
     <Container>
-      <PotentialChats/>
       {
         userChats?.length < 1 ? null : (
           <div className={style.chatboxContainer}>
@@ -31,7 +30,12 @@ const Chat = () => {
                 }
               </ul>
             </div>
-            <p>Chatbox</p>
+
+            <div className={style.chat}>
+              <p>Chatbox</p>
+            </div>
+
+            <PotentialChats/>
           </div>
         )
       }
