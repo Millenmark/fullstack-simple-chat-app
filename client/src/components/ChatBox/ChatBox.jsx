@@ -11,7 +11,7 @@ import style from './ChatBox.module.css'
 
 const ChatBox = () => {
   const {user} = useContext(AuthContext)
-  const {currentChat, messages, isMessagesLoading} = useContext(ChatContext)
+  const {currentChat, messages, isMessagesLoading, sendTextMessage} = useContext(ChatContext)
   const {recipientUser} = useFetchRecipientUser(currentChat, user)
   const [textMessage, setTextMessage] = useState("")
 
@@ -37,7 +37,7 @@ const ChatBox = () => {
             <p>No conversation yet</p>
           ) : (
             messages.map((message, index) => (
-              <div key={index} className={`${message?.senderId !== user?._id ? style.sentItem : style.messageItem}`}>
+              <div key={index} className={`${message?.senderId === user?._id ? style.sentItem : style.messageItem}`}>
                 <p>{message.text}</p>
                 <span>{moment(message.createdAt).calendar()}</span>
               </div>
@@ -53,7 +53,7 @@ const ChatBox = () => {
             borderRadius={10}
             borderColor="#34495e"
           />
-          <button>
+          <button onClick={() => sendTextMessage(textMessage, user, currentChat._id, setTextMessage)}>
             <img src={sentIcon} alt="" />
           </button>
         </div>

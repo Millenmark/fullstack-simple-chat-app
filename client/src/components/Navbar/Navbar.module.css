@@ -15,6 +15,12 @@
   gap: 1rem;
 }
 
+
+.navcontainer > ul li {
+  display: grid;
+  place-items: center;
+}
+
 .navcontainer > ul li:not(:first-child) {
   border-left: 2px solid var(--primary-color);
   padding-left: 1rem;

@@ -11,11 +11,15 @@ const Navbar = () => {
     <div className={style.navbar}>
       <Container className={style.navcontainer}>
         <h1><Link to="/">JustChat</Link></h1>
-        {user && <span>Hello! {user?.name}</span>}
         <ul>
           {
             user 
-            ? (<li><Button bgColor={'danger'} onClick={() => logout()}>Logout</Button></li>) 
+            ? (
+              <>
+              <li><Button bgColor={'danger'} onClick={() => logout()}>Logout</Button></li>
+              <li><Link to="#">{user?.name}</Link></li>
+              </>
+            ) 
             : (
               <>
                 <li><Link to="/login">Login</Link></li>
