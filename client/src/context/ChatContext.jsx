@@ -43,6 +43,10 @@ export const ChatContextProvider = ({ children, user }) => {
     socket.on("getOnlineUsers", (res) => {
       setOnlineUsers(res)
     })
+
+    return () => {
+      socket.off("getOnlineUsers")
+    }
   }, [socket, user?._id])
 
   useEffect(() => {

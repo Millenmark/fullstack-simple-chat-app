@@ -47,10 +47,14 @@ io.on('connection', (socket) => {
         socketId: socket.id,
       });
     
-      console.log("Users online: " , onlineUsers)
-      io.emit("getOnlineUsers", onlineUsers )
+      console.log("Users online: " , onlineUsers);
+      io.emit("getOnlineUsers", onlineUsers );
   });
 
+  socket.on("disconnect", () => {
+    onlineUsers = onlineUsers.filter(user => user.socketId !== socket.id);
+    io.emit("getOnlineUsers", onlineUsers );
+  })
 });
 
 server.listen(PORT, () => {
