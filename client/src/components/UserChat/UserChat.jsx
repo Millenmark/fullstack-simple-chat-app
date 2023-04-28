@@ -6,7 +6,7 @@ const UserChat = ({chat, user}) => {
   const {recipientUser} = useFetchRecipientUser(chat, user)
 
   return (
-    <a href="#" className={style.userChatsWrapper}>
+    <div className={style.userChatsWrapper}>
       <div className={style.userRecipient}>
         <img src={avatarMale} alt="" />
         <div className={style.details}>
@@ -19,7 +19,7 @@ const UserChat = ({chat, user}) => {
         <div className={style.date}>12/12/2022</div>
         <div className={style.notification}></div>
       </div>
-    </a>
+    </div>
   )
 }
 

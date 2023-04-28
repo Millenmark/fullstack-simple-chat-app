@@ -9,7 +9,7 @@ const Chat = () => {
 
   const { user } = useContext(AuthContext)
 
-  const { userChats, isUserChatsLoading, userChatsError } = useContext(ChatContext)
+  const { userChats, isUserChatsLoading, updateCurrentChat } = useContext(ChatContext)
 
   // console.log("UserChats", userChats);
 
@@ -23,7 +23,7 @@ const Chat = () => {
               <ul>
                 {
                   userChats?.map((chat, index) => (
-                    <li key={index}>
+                    <li key={index} style={{cursor: "pointer"}} onClick={() => updateCurrentChat(chat)}>
                       <UserChat chat={chat} user={user}/>
                     </li>
                   ))

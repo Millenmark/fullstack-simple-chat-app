@@ -1,5 +1,4 @@
 .userChatsWrapper {
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: 1rem;
