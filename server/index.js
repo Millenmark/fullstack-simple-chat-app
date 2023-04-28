@@ -14,6 +14,8 @@ app.use(json());
 app.use(cors());
 app.use("/api/users", userRoute)
 
+app.use("api/chats", chatRoute)
+
 // CRUD OPERATIONS END POINT
 app.get("/", (req, res) => {
   res.send("Welcome to our chat app :D");
