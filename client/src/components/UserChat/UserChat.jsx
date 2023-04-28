@@ -1,4 +1,4 @@
-const UserChat = () => {
+const UserChat = ({chat, user}) => {
   return (
     <div>UserChat</div>
   )
