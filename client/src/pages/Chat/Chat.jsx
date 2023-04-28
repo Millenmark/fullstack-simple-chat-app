@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { Container } from "../../UI";
-import { ChatBox, PotentialChats, UserChat } from "../../components";
+import { ChatBox, ChatHeader, PotentialChats, UserChat } from "../../components";
 import { AuthContext } from "../../context/AuthContext";
 import style from "./Chat.module.css"
 
@@ -32,6 +32,7 @@ const Chat = () => {
             </div>
 
             <div className={style.chat}>
+              <ChatHeader/>
               <ChatBox/>
             </div>
 

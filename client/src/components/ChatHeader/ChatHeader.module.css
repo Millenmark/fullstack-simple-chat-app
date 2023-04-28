@@ -1,0 +1,10 @@
+.chatHeader {
+  width: 100%;
+  background-color: var(--secondary-color);
+  padding-inline: .5rem;
+}
+
+.chatHeader p{
+  text-align: center;
+  font-weight: 500;
+}

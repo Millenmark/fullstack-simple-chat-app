@@ -17,5 +17,8 @@
   flex: 1;
   border-right: 2px solid var(--secondary-color);
   border-left: 2px solid var(--secondary-color);
-  padding: 1rem;
 }
+
+/* .chat > * {
+  padding: .5rem;
+} */

@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { AuthContext } from "../../context/AuthContext"
 import { ChatContext } from "../../context/ChatContext"
 import { useFetchRecipientUser } from "../../hooks/useFetchRecipient"
+import ChatHeader from "../ChatHeader/ChatHeader"
 
 import style from './ChatBox.module.css'
 
@@ -15,13 +16,17 @@ const ChatBox = () => {
   // console.log(user);
   // console.log(recipientUser);
 
-  if(!recipientUser) return (<p>No conversation selected yet</p>)
+  if(!recipientUser) {
+    return (<ChatHeader text={'Select a conversation'}/>)
+  } 
+
+  if(isMessagesLoading) return (<ChatHeader text={'Loading... Please wait.'}/>)
 
   return (
     <>
+      <ChatHeader text={recipientUser?.name}/>
       <div className={style.chatBox}>
-        <div className="chatboxHeader"></div>
-        <div className="chatboxBody">
+        <div className={style.chatboxBody}>
         {
           !messages || messages.length === 0 ? (
             <p>No conversation yet</p>
@@ -32,7 +37,6 @@ const ChatBox = () => {
           )
         }
         </div>
-        <div className="chatboxFooter"></div>
       </div>
     </>
   )
