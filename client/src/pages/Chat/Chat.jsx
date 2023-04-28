@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { Container } from "../../UI";
-import { UserChat } from "../../components";
+import { PotentialChats, UserChat } from "../../components";
 import { AuthContext } from "../../context/AuthContext";
 import style from "./Chat.module.css"
 
@@ -15,6 +15,7 @@ const Chat = () => {
 
   return (
     <Container>
+      <PotentialChats/>
       {
         userChats?.length < 1 ? null : (
           <div className={style.chatboxContainer}>
