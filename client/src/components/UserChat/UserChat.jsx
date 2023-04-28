@@ -3,7 +3,7 @@ import { useFetchRecipientUser } from "../../hooks/useFetchRecipient"
 import avatarMale from "../../assets/avatar_male.svg"
 
 const UserChat = ({chat, user}) => {
-  const {recipientUser} = useFetchRecipientUser(chat, user)
+  const {recipientUser} = useFetchRecipientUser(chat,user)
 
   return (
     <div className={style.userChatsWrapper}>

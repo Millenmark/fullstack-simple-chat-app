@@ -14,7 +14,8 @@ export const ChatContextProvider = ({ children, user }) => {
   const [isMessagesLoading, setIsMessagesLoading] = useState(false)
   const [messagesError, setMessagesError] = useState(null)
 
-  console.log(messages);
+  // console.log(currentChat?._id);
+  // console.log(messages);
 
   useEffect(() => {
     const getMessages = async () => {
@@ -32,7 +33,7 @@ export const ChatContextProvider = ({ children, user }) => {
     }
 
     getMessages()
-  }, [currentChat])
+  }, [currentChat?._id])
 
   
 
@@ -104,6 +105,7 @@ export const ChatContextProvider = ({ children, user }) => {
       userChatsError,
       potentialChats,
       createChat,
+      currentChat,
       updateCurrentChat,
       messages,
       isMessagesLoading,

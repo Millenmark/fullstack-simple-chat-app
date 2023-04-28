@@ -3,9 +3,19 @@
   max-width: 100vw;
   height: 90vh;
   display: flex;
-  gap: 1rem;
+}
+
+.chatboxContainer:first-child {
+  border-left: 2px solid var(--secondary-color);
+}
+
+.chatboxContainer:last-child {
+  border-right: 2px solid var(--secondary-color);
 }
 
 .chat {
   flex: 1;
+  border-right: 2px solid var(--secondary-color);
+  border-left: 2px solid var(--secondary-color);
+  padding: 1rem;
 }

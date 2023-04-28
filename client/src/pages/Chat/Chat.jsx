@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { ChatContext } from "../../context/ChatContext"
 import { Container } from "../../UI";
-import { PotentialChats, UserChat } from "../../components";
+import { ChatBox, PotentialChats, UserChat } from "../../components";
 import { AuthContext } from "../../context/AuthContext";
 import style from "./Chat.module.css"
 
@@ -9,7 +9,7 @@ const Chat = () => {
 
   const { user } = useContext(AuthContext)
 
-  const { userChats, isUserChatsLoading, updateCurrentChat } = useContext(ChatContext)
+  const { userChats, isUserChatsLoading, updateCurrentChat,  } = useContext(ChatContext)
 
   // console.log("UserChats", userChats);
 
@@ -32,10 +32,12 @@ const Chat = () => {
             </div>
 
             <div className={style.chat}>
-              <p>Chatbox</p>
+              <ChatBox/>
             </div>
 
-            <PotentialChats/>
+            <div>
+              <PotentialChats/>
+            </div>
           </div>
         )
       }

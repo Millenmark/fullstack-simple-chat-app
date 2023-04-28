@@ -1,3 +1,7 @@
+.allUsers {
+  padding: .5rem;
+}
+
 .singleUser {
   cursor: pointer;
 }
