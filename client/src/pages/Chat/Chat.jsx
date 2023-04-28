@@ -16,7 +16,7 @@ const Chat = () => {
   return (
     <Container>
       {
-        userChats?.length < 1 ? null : (
+        userChats?.length < 0 ? null : (
           <div className={style.chatboxContainer}>
             <div>
               {isUserChatsLoading && <p>Loading chats...</p>}

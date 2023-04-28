@@ -4,4 +4,23 @@
 
 .singleUser {
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.offline, .online {
+  width: 10px;
+  height: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.offline {
+  background-color: var(--secondary-color);
+}
+
+.online {
+  background-color: var(--success-color);
+}
+

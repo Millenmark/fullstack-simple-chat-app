@@ -34,8 +34,23 @@ const io = new Server(server, {
   }
 });
 
+let onlineUsers = [];
+
 io.on('connection', (socket) => {
-  console.log('A new client connected!' + socket.id);
+  console.log('A new client connected!: ' + socket.id);
+
+  //listen to a connection
+  socket.on("addNewUser", (userId) => {
+    !onlineUsers.some(user => user.userId === userId) &&
+      onlineUsers.push({
+        userId,
+        socketId: socket.id,
+      });
+    
+      console.log("Users online: " , onlineUsers)
+      io.emit("getOnlineUsers", onlineUsers )
+  });
+
 });
 
 server.listen(PORT, () => {
