@@ -1,3 +1,50 @@
 .chatBox {
+  border: 2px solid red;
+
+  height: 90%;
   padding: .5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.messageItem {
+  width: fit-content;
+  padding: .75rem;
+  border-radius: 0 10px 10px 10px;
+  background-color: var(--secondary-color);
+}
+
+.messageItem span, .sentItem span {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sentItem {
+  width: fit-content;
+  padding: .75rem;
+  border-radius: 10px 0px 10px 10px;
+  background-color: rgb(40, 121, 197);
+}
+
+.chatBoxBody  {
+  flex: 1;
+}
+
+.chatBoxFooter  {
+  display: flex;
+  padding-right: .5rem;
+}
+
+.chatBoxFooter button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.chatBoxFooter button > img {
+  width: 30px;
+  height: 30px;
+  aspect-ratio: 1;
 }
