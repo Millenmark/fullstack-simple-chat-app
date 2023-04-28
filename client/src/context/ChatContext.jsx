@@ -37,6 +37,8 @@ export const ChatContextProvider = ({ children, user }) => {
     // }
   }, [user])
 
+
+  //adding online users
   useEffect(() => {
     if(socket === null) return
     socket.emit("addNewUser", user?._id)
@@ -48,6 +50,32 @@ export const ChatContextProvider = ({ children, user }) => {
       socket.off("getOnlineUsers")
     }
   }, [socket, user?._id])
+
+  // sending messages
+  useEffect(() => {
+    if(socket === null) return
+
+    const recipientId = currentChat?.members?.find((id) => id !== user?._id)
+    
+    socket.emit("sendMessage", {...newMessage, recipientId})
+
+  }, [newMessage, socket, user?._id, currentChat])
+
+  //receive message
+  useEffect(() => {
+    if(socket === null) return
+
+    socket.on("getMessage", (res) => {
+      if(currentChat?._id !==  res.chatId) return
+
+      setMessages((prev) => [...prev, res])
+    })
+
+    return () => {
+      socket.off("getMessage")
+    }
+
+  }, [socket, currentChat])
 
   useEffect(() => {
     const getMessages = async () => {
