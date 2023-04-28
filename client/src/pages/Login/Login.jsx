@@ -71,7 +71,11 @@ const Login = () => {
               type={'submit'}
               bgColor={'primary'}
               className={style.formButton}
-            >Login</Button>
+            >
+              {
+                isLoginLoading ? "Logging you in..." : "Login"
+              }
+            </Button>
           </div>
         </form>
       </div>
