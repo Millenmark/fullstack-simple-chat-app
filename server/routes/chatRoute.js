@@ -1,5 +1,7 @@
 //Creating routes for our controller
 const express = require("express");
+const { createChat, findUserChats, findChat } = require("../controllers/chatController")
+
 
 const router = express.Router();
 
