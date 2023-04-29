@@ -12,7 +12,7 @@ const Notification = () => {
   const { notifications, userChats, allUsers, markAllAsRead, markAsRead} = useContext(ChatContext)
 
   const unreadNotifications = unreadNotificationsFunc(notifications)
-  const modifiedNotifications = notifications.map((n) => {
+  const modifiedNotifications = notifications?.map((n) => {
     const sender = allUsers.find(user => user._id === n.senderId)
 
     return {
@@ -30,8 +30,8 @@ const Notification = () => {
       <button onClick={() => setIsOpen(!isOpen)}>
         <img src={messageNotification} alt="" />
         {
-          unreadNotifications.length === 0 ? null : (
-            <span className={style.notificationCount}>{unreadNotifications.length}</span>
+          unreadNotifications?.length === 0 ? null : (
+            <span className={style.notificationCount}>{unreadNotifications?.length}</span>
           )
         }
         
@@ -46,7 +46,7 @@ const Notification = () => {
             </div>
             <div className={style.notificationBoxBody}>
               {
-                modifiedNotifications.length === 0 ? (
+                modifiedNotifications?.length === 0 ? (
                   <p>No notifications.</p>
                 ) : null
               }
