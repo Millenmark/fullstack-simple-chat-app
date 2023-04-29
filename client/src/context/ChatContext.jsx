@@ -197,6 +197,16 @@ export const ChatContextProvider = ({ children, user }) => {
   }, []);
   
 
+  //Mark all as read function
+  const markAllAsRead = useCallback((notifications) => {
+    const modNotifications  = notifications.map(n => {return {...n, isRead: true}})
+
+    setNotifications(modNotifications)
+  }, [])
+
+
+  //Opening the chatbox in notification
+  
 
 
   return (
@@ -215,6 +225,7 @@ export const ChatContextProvider = ({ children, user }) => {
       onlineUsers,
       notifications,
       allUsers,
+      markAllAsRead,
     }}>
       {children}
     </ChatContext.Provider>

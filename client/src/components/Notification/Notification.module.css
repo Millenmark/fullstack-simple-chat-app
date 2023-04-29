@@ -48,6 +48,13 @@
   font-weight: 500;
 }
 
+.notificationBoxHeader button {
+  cursor: pointer;
+  color: var(--white-color);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
 .notificationBoxHeader > *:first-child {
   flex: 1;
 }
@@ -73,19 +80,23 @@
   background-color: var(--danger-color);
 }
 
-.notificationItem {
+.notificationItem, .notificationItemHidden {
   font-size: 14px;
-  padding-block: .5rem;
+  padding: .5rem;
   display: flex;
   flex-direction: column;
 }
 
-.notificationItem:not(:first-child) {
+.notificationItem:not(:first-child), .notificationItemHidden:not(:first-child) {
   border-top: 2px solid rgba(0, 0, 0, 0.5);
 }
 
-.notificationItem > span:last-of-type {
+.notificationItem > span:last-of-type, .notificationItemHidden > span:last-of-type {
   font-size: 12px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.notificationItemHidden {
+  background-color: rgba(0, 0, 0, 0.4);
 }
