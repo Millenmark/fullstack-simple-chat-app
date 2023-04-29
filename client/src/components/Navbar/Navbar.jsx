@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container, Button } from '../../UI'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
+import Notification from '../Notification/Notification'
 
 const Navbar = () => {
   const {user, logout} = useContext(AuthContext)
@@ -16,8 +17,9 @@ const Navbar = () => {
             user 
             ? (
               <>
-              <li><Button bgColor={'danger'} onClick={() => logout()}>Logout</Button></li>
+              <Notification/>
               <li><Link to="#">{user?.name}</Link></li>
+              <li><Button bgColor={'danger'} onClick={() => logout()}>Logout</Button></li>
               </>
             ) 
             : (

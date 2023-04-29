@@ -91,7 +91,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
   }, [socket, currentChat])
 
-  console.log(messages)
+  // console.log(messages)
 
   useEffect(() => {
     const getMessages = async () => {
@@ -210,6 +210,7 @@ export const ChatContextProvider = ({ children, user }) => {
       messagesError,
       sendTextMessage,
       onlineUsers,
+      notifications,
     }}>
       {children}
     </ChatContext.Provider>
