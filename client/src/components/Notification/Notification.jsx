@@ -9,7 +9,7 @@ import moment from "moment"
 const Notification = () => {
   const [isOpen, setIsOpen] = useState(false)
   const {user} = useContext(AuthContext)
-  const { notifications, userChats, allUsers, markAllAsRead} = useContext(ChatContext)
+  const { notifications, userChats, allUsers, markAllAsRead, markAsRead} = useContext(ChatContext)
 
   const unreadNotifications = unreadNotificationsFunc(notifications)
   const modifiedNotifications = notifications.map((n) => {
@@ -59,6 +59,11 @@ const Notification = () => {
                           <div 
                             key={index} 
                             className={style.notificationItem}
+                            onClick={() => {
+                              markAsRead(n, userChats, user, notifications)
+                              setIsOpen(false)
+                              }
+                            }
                           >
                             <span><strong>{n.senderName}</strong> sent you a new message</span>
                             <span>{moment(n.date).calendar()}</span>

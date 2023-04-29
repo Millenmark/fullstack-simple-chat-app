@@ -206,7 +206,28 @@ export const ChatContextProvider = ({ children, user }) => {
 
 
   //Opening the chatbox in notification
-  
+  const markAsRead = useCallback((n, userChats, user, notifications) => {
+    const desiredChat = userChats.find(chat => {
+      const chatMembers = [user._id, n.senderId]
+      const isDesiredChat = chat?.members.every(member => {
+        return chatMembers.includes(member)
+      })
+
+      return isDesiredChat
+    })
+
+    //mark now as read
+    const modNofications = notifications.map(item => {
+      if (n.senderId === item.senderId){
+        return {...n, isRead: true}
+      } else {
+        return item
+      }
+    })
+
+    updateCurrentChat(desiredChat)
+    setNotifications(modNofications)
+  }, [])
 
 
   return (
@@ -226,6 +247,7 @@ export const ChatContextProvider = ({ children, user }) => {
       notifications,
       allUsers,
       markAllAsRead,
+      markAsRead
     }}>
       {children}
     </ChatContext.Provider>
