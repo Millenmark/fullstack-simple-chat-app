@@ -8,4 +8,6 @@
   color: var(--white-color);
   border-radius: 5px;
   width: auto;
+  display: grid;
+  place-items: center;
 }
