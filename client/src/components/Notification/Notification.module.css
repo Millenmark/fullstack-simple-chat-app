@@ -6,6 +6,7 @@
 }
 
 .notification button {
+  position: relative;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -21,20 +22,70 @@
 
 .notificationBox {
   position: absolute;
-  bottom: -100%;
+  transform: translateY(100%);
+  bottom: 0;
   right: 0;
-
-  padding: .5rem;
 
   background-color: rgb(37, 97, 165);
   border-radius: 5px;
 
   width:300px;
-  display: flex;
+  
 }
 
-.notificationBox > *:first-child {
+.notificationBox > * {
+  padding: .5rem;
+}
+
+.notificationBoxHeader {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.notificationBoxHeader > *:first-child {
   flex: 1;
 }
 
+.notificationCount {
+  position: absolute;
+  top: 0;
+  right: 0;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 18px;
+  height: 18px;
+
+  font-size: 12px;
+  font-weight: 800;
+  font-family: var(--main-font);
+  color: var(--white-color);
+
+  border-radius: 50%;
+  background-color: var(--danger-color);
+}
+
+.notificationItem {
+  font-size: 14px;
+  padding-block: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.notificationItem:not(:first-child) {
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.notificationItem > span:last-of-type {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}

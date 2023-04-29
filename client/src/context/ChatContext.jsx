@@ -10,6 +10,7 @@ export const ChatContextProvider = ({ children, user }) => {
   const [userChatsError, setUserChatsError] = useState(null)
   const [potentialChats, setPotentialChats] = useState([])
   const [currentChat, setCurrentChat] = useState(null)
+  const [allUsers, setAllUsers] = useState([])
 
   const [messages, setMessages] = useState(null)
   const [isMessagesLoading, setIsMessagesLoading] = useState(false)
@@ -23,7 +24,8 @@ export const ChatContextProvider = ({ children, user }) => {
 
   const [notifications, setNotifications] = useState([])
   
-  console.log(notifications);
+  // console.log(allUsers);
+  // console.log(notifications);
   // console.log(onlineUsers)
   // console.log(socket);
   // console.log(currentChat?._id);
@@ -135,6 +137,7 @@ export const ChatContextProvider = ({ children, user }) => {
       })
 
       setPotentialChats(chats)
+      setAllUsers(response)
     }
 
     getUsers()
@@ -211,6 +214,7 @@ export const ChatContextProvider = ({ children, user }) => {
       sendTextMessage,
       onlineUsers,
       notifications,
+      allUsers,
     }}>
       {children}
     </ChatContext.Provider>
