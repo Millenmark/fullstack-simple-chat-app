@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useRef, useEffect } from "react"
 import sentIcon from '../../assets/icon_send.svg'
 import { AuthContext } from "../../context/AuthContext"
 import { ChatContext } from "../../context/ChatContext"
@@ -14,12 +14,16 @@ const ChatBox = () => {
   const {currentChat, messages, isMessagesLoading, sendTextMessage} = useContext(ChatContext)
   const {recipientUser} = useFetchRecipientUser(currentChat, user)
   const [textMessage, setTextMessage] = useState("")
+  const scroll = useRef()
 
   // console.log(textMessage);
   // console.log(messages);
   // console.log(currentChat);
   // console.log(user);
   // console.log(recipientUser);
+  useEffect(() => {
+    scroll.current?.scrollIntoView({behavior: "smooth"})
+  }, [messages])
 
   if(!recipientUser) {
     return (<ChatHeader text={'Select a conversation'}/>)
@@ -37,7 +41,11 @@ const ChatBox = () => {
             <p>No conversation yet</p>
           ) : (
             messages.map((message, index) => (
-              <div key={index} className={`${message?.senderId === user?._id ? style.sentItem : style.messageItem}`}>
+              <div 
+                key={index} 
+                className={`${message?.senderId === user?._id ? style.sentItem : style.messageItem}`}
+                ref={scroll}
+              >
                 <p>{message.text}</p>
                 <span>{moment(message.createdAt).calendar()}</span>
               </div>
