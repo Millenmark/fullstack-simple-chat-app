@@ -48,6 +48,7 @@
 }
 
 .chatBoxFooter  {
+  max-width: 660px;
   display: flex;
   padding-right: .5rem;
 }
