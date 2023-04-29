@@ -29,3 +29,9 @@
 .navcontainer > ul li:hover {
   text-decoration: underline;
 }
+
+.name {
+  text-transform: capitalize;
+  letter-spacing: .5px;
+  font-weight: 700;
+}

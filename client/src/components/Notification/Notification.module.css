@@ -1,15 +1,40 @@
 .notification {
+  /* border: 2px solid red; */
+  position: relative;
   display: grid;
   place-items: center;
 }
 
-.notification > div {
+.notification button {
+  cursor: pointer;
   display: grid;
   place-items: center;
+  border: none;
+  background-color: transparent;
 }
 
 .notification img {
-  width: 100%;
-  height: 100%;
+  width: 30px;
+  height: 30px;
   aspect-ratio: 1;
 }
+
+.notificationBox {
+  position: absolute;
+  bottom: -100%;
+  right: 0;
+
+  padding: .5rem;
+
+  background-color: rgb(37, 97, 165);
+  border-radius: 5px;
+
+  width:300px;
+  display: flex;
+}
+
+.notificationBox > *:first-child {
+  flex: 1;
+}
+
+

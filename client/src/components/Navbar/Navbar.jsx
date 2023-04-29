@@ -18,7 +18,7 @@ const Navbar = () => {
             ? (
               <>
               <Notification/>
-              <li><Link to="#">{user?.name}</Link></li>
+              <li><Link to="#" className={style.name}>{user?.name}</Link></li>
               <li><Button bgColor={'danger'} onClick={() => logout()}>Logout</Button></li>
               </>
             ) 
