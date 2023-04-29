@@ -28,13 +28,13 @@ export const ChatContextProvider = ({ children, user }) => {
 
   /* Initialize socket */
   useEffect(() => {
-    const newSocket = io.connect("http://localhost:5000")
+    const newSocket = io("http://localhost:5000")
     setSocket(newSocket)
 
-    // //clean up function
-    // return () => {
-    //   newSocket.disconnect()
-    // }
+    //clean up function
+    return () => {
+      newSocket.disconnect()
+    }
   }, [user])
 
 
@@ -60,8 +60,7 @@ export const ChatContextProvider = ({ children, user }) => {
     const recipientId = currentChat?.members?.find((id) => id !== user?._id)
     
     socket.emit("sendMessage", {...newMessage, recipientId })
-
-  }, [newMessage, user?._id, currentChat])
+  }, [newMessage, user?._id, currentChat, socket])
 
   //receive message
   //console.log(messages)
@@ -179,7 +178,10 @@ export const ChatContextProvider = ({ children, user }) => {
     setNewMessage(response)
     setMessages((prev) => [...prev, response])
     setTextMessage("")
-  }, [])
+
+  }, []);
+  
+
 
 
   return (
