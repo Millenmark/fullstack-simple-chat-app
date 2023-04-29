@@ -17,6 +17,11 @@
   margin-top: 1rem;
 }
 
+.messageItem, .sentItem {
+  max-width: 380px;
+  word-wrap: break-word;
+}
+
 .messageItem span, .sentItem span {
   font-size: 12px;
   font-weight: 500;
@@ -25,11 +30,12 @@
 
 .sentItem {
   align-self: flex-end;
-  width: fit-content;
+  height: fit-content;
   padding: .75rem;
   border-radius: 10px 0px 10px 10px;
   background-color: rgb(40, 121, 197);
   margin-top: 1rem;
+  
 }
 
 .chatBoxBody  {
