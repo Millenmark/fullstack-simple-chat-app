@@ -61,7 +61,7 @@ export const ChatContextProvider = ({ children, user }) => {
     
     socket.emit("sendMessage", {...newMessage, recipientId })
 
-  }, [newMessage, socket, user?._id, currentChat])
+  }, [newMessage, user?._id, currentChat])
 
   //receive message
   //console.log(messages)
