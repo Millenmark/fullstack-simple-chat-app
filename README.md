@@ -60,5 +60,5 @@ Run the server
 
 If you run the app successfully, you can create an account and it will log you in to the application.
 
-After that, pick a potential chat to the right corner. Click it and it will show the person you clicked on the right side, and in that you can open your conversation.
+After that, pick a potential chat in the left side. Click it and it will show the person you clicked on the right side, and in that you can open your conversation.
 
